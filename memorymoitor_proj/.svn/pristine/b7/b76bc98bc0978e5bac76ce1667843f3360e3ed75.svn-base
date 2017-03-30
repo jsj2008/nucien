@@ -1,0 +1,50 @@
+//
+//  allochook.m
+//  MemoryMonitor
+//
+//  Created by 王哲锴 on 17/3/2.
+//  Copyright © 2017年 王哲锴. All rights reserved.
+//
+
+#import "NSObject+allochook.h"
+#include <malloc/malloc.h>
+
+@implementation NSObject(allochook)
+
++(void)swizzleMemoryMethod{
+    [YellowHookTool swizzleInstanceMethod:[NSObject class] selector:@selector(dealloc) withClass:[NSObject class] Method:@selector(my_dealloc)];
+    [YellowHookTool swizzleClassMethod:[NSObject class] selector:@selector(alloc) withClass:[NSObject class] Method:@selector(my_alloc)];
+}
+
+-(void)my_dealloc {
+    malloc_printf("dealloc hook: address - %p\n", self);
+//    [[QQVCLeakHunter getInstance] cancelCheckForKey:[self controllerReferenceString]];
+//    [[YellowStackHandler getInstance] removeStackForKey:(long)self];
+    [self my_dealloc];
+}
+
++ (instancetype)my_alloc {
+    id obj = [self my_alloc];
+    malloc_printf("alloc hook: address - %p\n", obj);
+//    if([QQVCLeakHunter isEnableMonitor]){
+//        if([obj isKindOfClass:[UIViewController class]]){
+//            NSString *name = NSStringFromClass([obj class]);
+//            if([name hasPrefix:@"_"] || [name isEqualToString:@"UIAlertController"]){
+//                return obj;
+//            }
+//            CallBackStack callStack;
+//            callStack.frames = backtrace(callStack.stack, 128);
+//            [[YellowStackHandler getInstance] addAllocStack:callStack forKey:(long)obj];
+//        }
+//    }
+//    if([QQVCLeakHunter isEnableMonitorView] && [QQVCLeakHunter isEnableMonitorViewStack]){
+//        if([obj isKindOfClass:[UIView class]])
+//        {
+//            NSString *allocStack = [[YellowStackHandler getInstance] getStackInfo];
+//            objc_setAssociatedObject(obj, uiviewCallStack, allocStack, OBJC_ASSOCIATION_RETAIN);
+//        }
+//    }
+    return obj;
+}
+
+@end

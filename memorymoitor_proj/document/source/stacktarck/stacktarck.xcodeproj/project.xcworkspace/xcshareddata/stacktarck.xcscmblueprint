@@ -1,0 +1,27 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "78cae930-dcab-11e6-8584-3d159fa27846",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "78cae930-dcab-11e6-8584-3d159fa27846" : {
+      "DVTSourceControlWorkingCopyRepositoryBranchesLocationKey" : "branches",
+      "DVTSourceControlWorkingCopyRepositoryTagsLocationKey" : "tags",
+      "DVTSourceControlWorkingCopyRepositoryPrimaryBranchLocationKey" : "trunk"
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "78cae930-dcab-11e6-8584-3d159fa27846" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C0AC73F8-5B9A-41B1-AEDF-FCE56B1E4171",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "78cae930-dcab-11e6-8584-3d159fa27846" : "memorymoitor_proj\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "stacktarck",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "document\/source\/stacktarck\/stacktarck.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/tc-svn.tencent.com\/components\/memorymoitor_proj",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "78cae930-dcab-11e6-8584-3d159fa27846"
+    }
+  ]
+}

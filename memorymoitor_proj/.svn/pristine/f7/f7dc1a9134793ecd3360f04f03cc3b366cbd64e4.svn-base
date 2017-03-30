@@ -1,0 +1,115 @@
+//
+//  BasicFunction.m
+//  MemoryMonitor
+//
+//  Created by 王哲锴 on 17/3/13.
+//  Copyright © 2017年 王哲锴. All rights reserved.
+//
+
+#include "BasicFunction.h"
+
+thread_array_t  thread_array;
+mach_msg_type_number_t thread_count;
+
+void *ptrs_hashmap;
+void *pmap;
+
+OSSpinLock spinlock = OS_SPINLOCK_INIT;
+OSSpinLock malloclock=OS_SPINLOCK_INIT;
+
+malloc_zone_t *memory_zone;
+
+void hook_init()
+{
+    memory_zone = malloc_create_zone(0, 0);
+    ptrs_hashmap = hashmap_new();
+    pmap = hashmap_new();
+}
+
+void recordStack(vm_address_t address, uint32_t size, const char*name)
+{
+    base_ptr_t *base_ptr = malloc_zone_malloc(memory_zone, sizeof(base_ptr_t));
+    unsigned char md5[16];
+    vm_address_t *stack[max_stack_depth];
+    base_ptr->depth = backtrace(stack, 128);
+    md5 = get_hash(stack,base_ptr->depth);
+    if(base_ptr->depth > 0)
+    {
+        base_ptr->stack = (vm_address_t**)malloc_zone_malloc(memory_zone, base_ptr->depth*sizeof(vm_address_t*));
+        memcpy(base_ptr->stack, stack, base_ptr->depth*sizeof(vm_address_t*));
+        memcpy(base_ptr->name, name, strlen(name));
+        base_ptr->size = size;
+        base_ptr->address = address;
+        OSSpinLockLock(&spinlock);
+        if(ptrs_hashmap && address)
+        {
+            malloc_printf("recordhook: %s, %p, %d\n", name, address, size);
+            hashmap_put(ptrs_hashmap, longToString(address), base_ptr);
+        }
+        OSSpinLockUnlock(&spinlock);
+    }
+}
+
+void removeStack(vm_address_t address,const char*name)
+{
+    OSSpinLockLock(&spinlock);
+    if(ptrs_hashmap && address){
+        malloc_printf("removehook: %s, %p\n", name, address);
+        hashmap_remove(ptrs_hashmap, longToString(address));
+    }
+    OSSpinLockUnlock(&spinlock);
+}
+
+char *longToString(long x)
+{
+    int type = sizeof(long) / sizeof(char);
+    char *ret = malloc_zone_malloc(malloc_default_zone(), type * sizeof(char));
+    memcpy(ret, &x, sizeof(long));
+    return ret;
+}
+
+long stringToLong(char *x)
+{
+    long *ret = malloc_zone_malloc(malloc_default_zone(), sizeof(long));
+    memcpy(ret, x, sizeof(long));
+    return *ret;
+}
+
+#define HASHMAGIC 173
+
+unsigned char get_hash(vm_address_t org_value[], int len) {
+    vm_address_t hash_value = 0;
+    for(int i = 0; i < len; ++i) {
+        hash_value = (hash_value + org_value[i]) * HASHMAGIC;
+    }
+    return hash_value;
+}
+
+
+void suspendThread()
+{
+    task_threads(mach_task_self(), &thread_array, &thread_count);
+    thread_t cThread = mach_thread_self();
+    for(int index = 0; index < thread_count; ++index)
+    {
+        if(thread_array[index] != cThread)
+        {
+            thread_suspend(thread_array[index]);
+        }
+    }
+}
+
+@implementation BasicFunction
+-(NSMutableArray *)getStackInfo:(CallBackStack)callStack{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for(int i = 0;i < callStack.frames;i++){
+        long addr = (long)callStack.stack[i];
+        YellowImage image;
+        [[MachOHelpler getInstance] getImageByAddr:addr image:&image];
+        const char *name = image.name;
+        NSString *info = [NSString stringWithFormat:@"\"%d %s 0x%lx 0x%lx\" ",i, (name != NULL) ? name : "unknown", image.loadAddr, addr];
+        [array addObject:info];
+    }
+    return array;
+}
+@end

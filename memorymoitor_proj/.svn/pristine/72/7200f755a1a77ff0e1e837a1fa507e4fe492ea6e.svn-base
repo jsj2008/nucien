@@ -1,0 +1,93 @@
+//
+//  ImageInfo.m
+//  test
+//
+//  Created by kirk on 15/9/1.
+//  Copyright (c) 2015年 tencent. All rights reserved.
+//
+
+#import "ImageInfo.h"
+#import <mach-o/dyld.h>
+
+static NSMutableArray* m_allImages;
+static BOOL m_bInit = NO;
+
+@implementation ImageInfo
+
++(void)init
+{
+    m_allImages = [[NSMutableArray alloc]init];
+    
+    uint32_t count = _dyld_image_count();
+    
+    for (uint32_t i = 0; i < count; i++) {
+        const mach_header_t* header = (const mach_header_t*)_dyld_get_image_header(i);
+        const char* name = _dyld_get_image_name(i);
+        const char* tmp = strrchr(name, '/');
+        long slide = _dyld_get_image_vmaddr_slide(i);
+        if (tmp) {
+            name = tmp + 1;
+        }
+        
+        long offset = (long)header + sizeof(mach_header_t);
+        
+        for (unsigned int i = 0; i < header->ncmds; i++) {
+            const segment_command_t* segment = (const segment_command_t*)offset;
+            if (segment->cmd == MY_SEGMENT_CMD_TYPE && strcmp(segment->segname, SEG_TEXT) == 0) {
+                long begin = (long)segment->vmaddr + slide;
+                long end = (long)(begin + segment->vmsize);
+                Image image;
+                image.loadAddr = (long)header;
+                image.beginAddr = begin;
+                image.endAddr = end;
+                image.name = name;
+                [m_allImages addObject:[NSValue value:&image withObjCType:@encode(Image)]];
+            }
+            offset += segment->cmdsize;
+        }
+    }
+    m_bInit = YES;
+
+    
+}
++(NSMutableArray*)getAllImageInfo
+{
+    return m_allImages;
+}
+
+
++(NSMutableArray*)getStackInfo:(NSArray*) stack
+{
+    if (!m_bInit) {
+        [self init];
+    }
+    NSMutableArray* ret = [[NSMutableArray alloc]init];
+    NSString* item = @"";
+    Image image;
+    long addr;
+    for(NSNumber* stackItem in stack){
+        addr =  (long)[stackItem longValue];
+        item = @"";
+        for (size_t i=0; i<[m_allImages count]; i++) {
+            [m_allImages[i] getValue:&image];
+            if (addr>=image.beginAddr && addr<image.endAddr) {
+                item = [NSString stringWithFormat:@"%s 0x%lx 0x%lx",image.name ? image.name : "unknown",image.loadAddr,addr];
+                break;
+            }
+        }
+        if ([item isEqualToString:@""]) {
+            item = [NSString stringWithFormat:@"unkonwn 0x%016lx",addr];
+        }
+        [ret addObject:item];
+        
+    }
+    
+    return ret;
+    
+    
+}
+
+
+
+
+@end

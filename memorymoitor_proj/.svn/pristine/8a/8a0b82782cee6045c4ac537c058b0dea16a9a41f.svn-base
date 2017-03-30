@@ -1,0 +1,1 @@
+ const unsigned char MagnifierSDKVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:MagnifierSDK  PROJECT:MagnifierSDK_framework-1" "\n"; const double MagnifierSDKVersionNumber __attribute__ ((used)) = (double)1.;

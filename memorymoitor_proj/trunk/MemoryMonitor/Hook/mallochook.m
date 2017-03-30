@@ -1,0 +1,233 @@
+  //
+//  mallochook.c
+//  memorydemo
+//
+//  Created by michaelbi on 16/10/11.
+//  Copyright © 2016年 tencent. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "mallochook.h"
+
+
+
+static NSMutableArray * freearray;
+NSLock *writeLock;
+//OSSpinLock spinlock = OS_SPINLOCK_INIT;
+//OSSpinLock malloclock=OS_SPINLOCK_INIT;
+//#define max_stack_depth 128
+StackImage allstackimage[1024*100];
+int allimagecount = 0;
+//void removeMallocStack(vm_address_t address,const char*name);
+//void recordMallocStack(vm_address_t address,uint32_t size,const char*name,size_t stack_num_to_skip);
+static void* (*orig_malloc) (size_t size, const void *caller);
+static void* (*orig_calloc) (size_t my_count, size_t size, const void *caller);
+static void (*orig_free) (void *ptr, const void *caller);
+void getImageByAddr(long addr,StackImage *image);
+static bool didHookOriginalMethods = false;
+void initallstackimage();
+
+//char *longToString(long x)
+//{
+//    int type = sizeof(long) / sizeof(char);
+//    char *ret = malloc_zone_malloc(malloc_default_zone(), type * sizeof(char));
+//    memcpy(ret, &x, sizeof(long));
+//    return ret;
+//}
+//
+//long stringToLong(char *x)
+//{
+//    long *ret = malloc_zone_malloc(malloc_default_zone(), sizeof(long));
+//    memcpy(ret, x, sizeof(long));
+//    return *ret;
+//}
+
+void save_original_symbols() {
+    orig_malloc = dlsym(RTLD_DEFAULT, "malloc");
+    orig_calloc = dlsym(RTLD_DEFAULT, "calloc");
+    orig_free = dlsym(RTLD_DEFAULT, "free");
+}
+
+void *my_malloc (size_t size, const void *caller){
+    //OSSpinLockLock(&malloclock);
+    void * result;
+    result = orig_malloc(size,caller);
+    if(didHookOriginalMethods){
+        //printf("Calling real malloc result is %p size is %zu\n",result, size);
+        //printf("%s",object_getClassName((__bridge id)(result)));
+        recordStack((vm_address_t)result, (uint32_t)size,"malloc");
+    }
+    //OSSpinLockUnlock(&malloclock);
+    return result;
+}
+
+void *my_calloc (size_t my_count, size_t size, const void *caller){
+    //OSSpinLockLock(&malloclock);
+    void * result;
+    result = orig_calloc(my_count, size,caller);
+    if(didHookOriginalMethods){
+        //printf("Calling real malloc result is %p size is %zu\n",result, size);
+        //printf("%s",object_getClassName((__bridge id)(result)));
+        recordStack((vm_address_t)result, (uint32_t)size,"calloc");
+    }
+    //OSSpinLockUnlock(&malloclock);
+    return result;
+}
+
+
+
+void my_free(void *ptr, const void *caller)
+{
+    //OSSpinLockLock(&malloclock);
+    if(didHookOriginalMethods){
+        removeStack((vm_address_t)ptr,"free");
+    }
+    //OSSpinLockUnlock(&malloclock);
+    orig_free(ptr,caller);
+}
+
+
+void turnOnMallocTracker(void){
+    if(didHookOriginalMethods){
+        return;
+    }
+    freearray = [[NSMutableArray alloc]init];
+    writeLock = [[NSLock alloc] init];
+    didHookOriginalMethods =true;
+    save_original_symbols();
+    initallstackimage();
+    rebind_symbols((struct rebinding[3]){{"malloc",my_malloc},{"calloc",my_calloc},{"free",my_free}}, 3);
+    //rebind_symbols((struct rebinding[1]){{"malloc",my_malloc}}, 1);
+}
+
+void turnOffMallocTracker(void){
+    if(!didHookOriginalMethods){
+        return;
+    }
+    didHookOriginalMethods =false;
+    allimagecount=0;
+}
+
+
+//void recordMallocStack(vm_address_t address, uint32_t size, const char*name, size_t stack_num_to_skip)
+//{
+//    if(1)
+//    {
+//        base_ptr_t *base_ptr = malloc_zone_malloc(memory_zone, sizeof(base_ptr_t));
+//        
+//        vm_address_t *stack[max_stack_depth];
+//        base_ptr->depth = backtrace(stack, 128);
+//        if(base_ptr->depth > 0)
+//        {
+//            base_ptr->stack = (vm_address_t**)malloc_zone_malloc(memory_zone, base_ptr->depth*sizeof(vm_address_t*));
+//            memcpy(base_ptr->stack, stack, base_ptr->depth*sizeof(vm_address_t*));
+//            memcpy(base_ptr->name, name, strlen(name));
+//            base_ptr->size = size;
+//            base_ptr->address = address;
+//            OSSpinLockLock(&spinlock);
+//            if(ptrs_hashmap && address)
+//            {
+//                malloc_printf("fishhook malloc record: %p\n", address);
+//                hashmap_put(ptrs_hashmap, longToString(address), base_ptr);
+//            }
+//            OSSpinLockUnlock(&spinlock);
+//        }
+//    }
+//}
+//
+//void removeMallocStack(vm_address_t address,const char*name)
+//{
+//     OSSpinLockLock(&spinlock);
+//    if(ptrs_hashmap && address){
+//        malloc_printf("fishhook free record: %p\n", address);
+//        hashmap_remove(ptrs_hashmap, longToString(address));
+//    }
+//    OSSpinLockUnlock(&spinlock);
+//}
+//    
+//rosenluo
+//void recordMallocStack(vm_address_t address,uint32_t size,const char*name,size_t stack_num_to_skip)
+//{
+//        base_stack_t base_stack;
+//        base_ptr_log base_ptr;
+//        unsigned char md5[16];
+//        vm_address_t  *stack[max_stack_depth];
+//        base_stack.depth = recordBacktrace(2,stack_num_to_skip, stack,md5);
+//        if(base_stack.depth > 0){
+//            base_stack.stack = (vm_address_t**)malloc_zone_malloc(memory_zone, base_stack.depth*sizeof(vm_address_t*));
+//            memcpy(base_stack.stack, stack, base_stack.depth * sizeof(vm_address_t *));
+//            base_stack.name = name;
+//            base_ptr.md5 = md5;
+//            base_ptr.size = size;
+//            OSSpinLockLock(&hashmap_spinlock);
+//            if(ptrs_hashmap && stacks_hashmap){
+//                ptrs_hashmap->insertPtr(address, &base_ptr);
+//                stacks_hashmap->insertStackAndIncreaseCountIfExist(md5, &base_stack);
+//            }
+//            OSSpinLockUnlock(&hashmap_spinlock);
+//        }
+//}
+    
+//        
+//        OSSpinLockLock(&spinlock);
+//        if(ptrs_hashmap && stacks_hashmap){
+//            mallocinfo[malloccnt].name = name;
+//            mallocinfo[malloccnt].address = address;
+//            mallocinfo[malloccnt].size =size;
+//            printmallocinf(mallocinfo[malloccnt++]);
+//            ptrs_hashmap->insertPtr(address, &base_ptr);
+//            stacks_hashmap->insertStackAndIncreaseCountIfExist(md5, &base_stack);
+////        }
+//        OSSpinLockUnlock(&spinlock);
+//    }
+
+
+
+void initallstackimage(){
+        uint32_t count = _dyld_image_count();
+        for (uint32_t i = 0; i < count; i++) {
+            const mach_header_t* header = (const mach_header_t*)_dyld_get_image_header(i);
+            const char* name = _dyld_get_image_name(i);
+            const char* tmp = strrchr(name, '/');
+            long slide = _dyld_get_image_vmaddr_slide(i);
+            if (tmp) {
+                name = tmp + 1;
+            }
+            
+            long offset = (long)header + sizeof(mach_header_t);
+            
+            for (unsigned int i = 0; i < header->ncmds; i++) {
+                const segment_command_t* segment = (const segment_command_t*)offset;
+                if (segment->cmd == MY_SEGMENT_CMD_TYPE && strcmp(segment->segname, SEG_TEXT) == 0) {
+                    long begin = (long)segment->vmaddr + slide;
+                    long end = (long)(begin + segment->vmsize);
+                    StackImage image;
+                    image.loadAddr = (long)header;
+                    image.beginAddr = begin;
+                    image.endAddr = end;
+                    image.name = name;
+                    allstackimage[i]=image;
+                    allimagecount++;
+                    //NSLog(@"image info %s begin %ld end %ld",name,begin,end);
+                }
+                offset += segment->cmdsize;
+            }
+        }
+}
+
+void getImageByAddr(long addr,StackImage *image){
+    for (size_t i = 0; i < allimagecount; i++) {
+        if (addr >= allstackimage[i].beginAddr && addr < allstackimage[i].endAddr) {
+                 //     *image = allImages[i];
+            image->name = allstackimage[i].name;
+            image->loadAddr = allstackimage[i].loadAddr;
+            image->beginAddr = allstackimage[i].beginAddr;
+            image->endAddr = allstackimage[i].endAddr;
+        }
+    }
+}
+
+long getMap()
+{
+    return ptrs_hashmap;
+}

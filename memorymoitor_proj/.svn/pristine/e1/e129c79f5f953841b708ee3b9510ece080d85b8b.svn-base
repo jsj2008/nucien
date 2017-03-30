@@ -1,0 +1,16 @@
+{
+	Filter = {
+		Bundles = (
+			"com.tencent.qq.dailybuild.test.zx",
+			"com.tencent.jacky.demo.tabview",
+			"com.facebook.Messenger",
+			"com.facebook.Facebook",
+			"com.tencent.qq.dailybuild.vip",
+			"com.tencent.MagnifierSDKTest",
+			"com.tencent.xin",
+			"com.tencent.mqq",
+			"com.tencent.qq.dailybuild",
+			"com.tencent.",
+		);
+	};
+}

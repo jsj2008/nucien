@@ -1,0 +1,741 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23BEFFC3FD0E6575D5E56B78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDA0B8A1D36740848D30D13 /* libPods.a */; };
+		E108B2A71CBE0A2600191E0B /* KtMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2A61CBE0A2600191E0B /* KtMainTableViewCell.m */; };
+		E108B2AB1CBE14C300191E0B /* KtTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2AA1CBE14C300191E0B /* KtTableViewDataSource.m */; };
+		E108B2AE1CBE15D800191E0B /* KtTableViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2AD1CBE15D800191E0B /* KtTableViewSectionObject.m */; };
+		E108B2B11CBE191300191E0B /* KtBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2B01CBE191300191E0B /* KtBaseTableViewCell.m */; };
+		E108B2B41CBE1C9100191E0B /* KtMainTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2B31CBE1C9100191E0B /* KtMainTableViewDataSource.m */; };
+		E108B2B71CBE1F6500191E0B /* KtTableViewBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E108B2B61CBE1F6500191E0B /* KtTableViewBaseItem.m */; };
+		E12A4F5E1CE8180E00AB6F35 /* NSDictionary+KtExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E12A4F5B1CE8180E00AB6F35 /* NSDictionary+KtExtension.m */; };
+		E12A4F5F1CE8180E00AB6F35 /* UIView+KtExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E12A4F5D1CE8180E00AB6F35 /* UIView+KtExtension.m */; };
+		E1621E021CBDF265003D9438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1621E011CBDF265003D9438 /* main.m */; };
+		E1621E051CBDF267003D9438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1621E041CBDF267003D9438 /* AppDelegate.m */; };
+		E1621E081CBDF267003D9438 /* KTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1621E071CBDF267003D9438 /* KTMainViewController.m */; };
+		E1621E0B1CBDF267003D9438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1621E091CBDF267003D9438 /* Main.storyboard */; };
+		E1621E0D1CBDF267003D9438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1621E0C1CBDF267003D9438 /* Assets.xcassets */; };
+		E1621E101CBDF267003D9438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1621E0E1CBDF267003D9438 /* LaunchScreen.storyboard */; };
+		E1621E1B1CBDF267003D9438 /* KtTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1621E1A1CBDF267003D9438 /* KtTableViewTests.m */; };
+		E1621E261CBDF267003D9438 /* KtTableViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1621E251CBDF267003D9438 /* KtTableViewUITests.m */; };
+		E19B41191CC21555008A3E7F /* KtTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B41181CC21555008A3E7F /* KtTableViewController.m */; };
+		E1DCC9EF1CE5A61A00CDC83D /* KtBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC9EE1CE5A61A00CDC83D /* KtBaseModel.m */; };
+		E1DCC9F21CE5A6A000CDC83D /* KtBaseServerAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC9F11CE5A6A000CDC83D /* KtBaseServerAPI.m */; };
+		E1DCC9F51CE5A76D00CDC83D /* KtMainTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC9F41CE5A76D00CDC83D /* KtMainTableModel.m */; };
+		E1DCC9F81CE5A81000CDC83D /* KtBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC9F71CE5A81000CDC83D /* KtBaseItem.m */; };
+		E1DCC9FB1CE5A99C00CDC83D /* KtMainTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC9FA1CE5A99C00CDC83D /* KtMainTableItem.m */; };
+		E1EE5C9D1CBE811C0095688B /* KtBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EE5C9C1CBE811C0095688B /* KtBaseTableView.m */; };
+		E1F64E7E1CECB048005800E4 /* KtBaseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F64E7D1CECB048005800E4 /* KtBaseListModel.m */; };
+		E1F64E811CECB067005800E4 /* KtBaseListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F64E801CECB067005800E4 /* KtBaseListItem.m */; };
+		E1F64F1B1CEE956E005800E4 /* KtRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F64F1A1CEE956E005800E4 /* KtRefreshTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1621E171CBDF267003D9438 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1621DF51CBDF265003D9438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1621DFC1CBDF265003D9438;
+			remoteInfo = KtTableView;
+		};
+		E1621E221CBDF267003D9438 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1621DF51CBDF265003D9438 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1621DFC1CBDF265003D9438;
+			remoteInfo = KtTableView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39F19645603938C8EF7DBFD3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		74A2D569E414911E7538367E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AFDA0B8A1D36740848D30D13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E108B2A51CBE0A2600191E0B /* KtMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtMainTableViewCell.h; sourceTree = "<group>"; };
+		E108B2A61CBE0A2600191E0B /* KtMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtMainTableViewCell.m; sourceTree = "<group>"; };
+		E108B2A91CBE14C300191E0B /* KtTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtTableViewDataSource.h; sourceTree = "<group>"; };
+		E108B2AA1CBE14C300191E0B /* KtTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtTableViewDataSource.m; sourceTree = "<group>"; };
+		E108B2AC1CBE15D800191E0B /* KtTableViewSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtTableViewSectionObject.h; sourceTree = "<group>"; };
+		E108B2AD1CBE15D800191E0B /* KtTableViewSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtTableViewSectionObject.m; sourceTree = "<group>"; };
+		E108B2AF1CBE191300191E0B /* KtBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseTableViewCell.h; sourceTree = "<group>"; };
+		E108B2B01CBE191300191E0B /* KtBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseTableViewCell.m; sourceTree = "<group>"; };
+		E108B2B21CBE1C9100191E0B /* KtMainTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtMainTableViewDataSource.h; sourceTree = "<group>"; };
+		E108B2B31CBE1C9100191E0B /* KtMainTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtMainTableViewDataSource.m; sourceTree = "<group>"; };
+		E108B2B51CBE1F6500191E0B /* KtTableViewBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtTableViewBaseItem.h; sourceTree = "<group>"; };
+		E108B2B61CBE1F6500191E0B /* KtTableViewBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtTableViewBaseItem.m; sourceTree = "<group>"; };
+		E12A4F5A1CE8180E00AB6F35 /* NSDictionary+KtExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KtExtension.h"; sourceTree = "<group>"; };
+		E12A4F5B1CE8180E00AB6F35 /* NSDictionary+KtExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+KtExtension.m"; sourceTree = "<group>"; };
+		E12A4F5C1CE8180E00AB6F35 /* UIView+KtExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+KtExtension.h"; sourceTree = "<group>"; };
+		E12A4F5D1CE8180E00AB6F35 /* UIView+KtExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+KtExtension.m"; sourceTree = "<group>"; };
+		E1621DFD1CBDF265003D9438 /* KtTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KtTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1621E011CBDF265003D9438 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E1621E031CBDF267003D9438 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E1621E041CBDF267003D9438 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E1621E061CBDF267003D9438 /* KTMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KTMainViewController.h; sourceTree = "<group>"; };
+		E1621E071CBDF267003D9438 /* KTMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KTMainViewController.m; sourceTree = "<group>"; };
+		E1621E0A1CBDF267003D9438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E1621E0C1CBDF267003D9438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1621E0F1CBDF267003D9438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1621E111CBDF267003D9438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1621E161CBDF267003D9438 /* KtTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KtTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1621E1A1CBDF267003D9438 /* KtTableViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KtTableViewTests.m; sourceTree = "<group>"; };
+		E1621E1C1CBDF267003D9438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1621E211CBDF267003D9438 /* KtTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KtTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1621E251CBDF267003D9438 /* KtTableViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KtTableViewUITests.m; sourceTree = "<group>"; };
+		E1621E271CBDF267003D9438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E19B41171CC21555008A3E7F /* KtTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtTableViewController.h; sourceTree = "<group>"; };
+		E19B41181CC21555008A3E7F /* KtTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtTableViewController.m; sourceTree = "<group>"; };
+		E1DCC9ED1CE5A61A00CDC83D /* KtBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseModel.h; sourceTree = "<group>"; };
+		E1DCC9EE1CE5A61A00CDC83D /* KtBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseModel.m; sourceTree = "<group>"; };
+		E1DCC9F01CE5A6A000CDC83D /* KtBaseServerAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseServerAPI.h; sourceTree = "<group>"; };
+		E1DCC9F11CE5A6A000CDC83D /* KtBaseServerAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseServerAPI.m; sourceTree = "<group>"; };
+		E1DCC9F31CE5A76D00CDC83D /* KtMainTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtMainTableModel.h; sourceTree = "<group>"; };
+		E1DCC9F41CE5A76D00CDC83D /* KtMainTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtMainTableModel.m; sourceTree = "<group>"; };
+		E1DCC9F61CE5A81000CDC83D /* KtBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseItem.h; sourceTree = "<group>"; };
+		E1DCC9F71CE5A81000CDC83D /* KtBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseItem.m; sourceTree = "<group>"; };
+		E1DCC9F91CE5A99C00CDC83D /* KtMainTableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtMainTableItem.h; sourceTree = "<group>"; };
+		E1DCC9FA1CE5A99C00CDC83D /* KtMainTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtMainTableItem.m; sourceTree = "<group>"; };
+		E1EE5C9B1CBE811C0095688B /* KtBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseTableView.h; sourceTree = "<group>"; };
+		E1EE5C9C1CBE811C0095688B /* KtBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseTableView.m; sourceTree = "<group>"; };
+		E1F64E7C1CECB048005800E4 /* KtBaseListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseListModel.h; sourceTree = "<group>"; };
+		E1F64E7D1CECB048005800E4 /* KtBaseListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseListModel.m; sourceTree = "<group>"; };
+		E1F64E7F1CECB067005800E4 /* KtBaseListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtBaseListItem.h; sourceTree = "<group>"; };
+		E1F64E801CECB067005800E4 /* KtBaseListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtBaseListItem.m; sourceTree = "<group>"; };
+		E1F64F191CEE956E005800E4 /* KtRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KtRefreshTableViewController.h; sourceTree = "<group>"; };
+		E1F64F1A1CEE956E005800E4 /* KtRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KtRefreshTableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1621DFA1CBDF265003D9438 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23BEFFC3FD0E6575D5E56B78 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E131CBDF267003D9438 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E1E1CBDF267003D9438 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69E01484FD4E182CB56A5FE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74A2D569E414911E7538367E /* Pods.debug.xcconfig */,
+				39F19645603938C8EF7DBFD3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E108B2A81CBE148200191E0B /* KtBaseTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E108B2A91CBE14C300191E0B /* KtTableViewDataSource.h */,
+				E108B2AA1CBE14C300191E0B /* KtTableViewDataSource.m */,
+				E108B2AF1CBE191300191E0B /* KtBaseTableViewCell.h */,
+				E108B2B01CBE191300191E0B /* KtBaseTableViewCell.m */,
+				E108B2AC1CBE15D800191E0B /* KtTableViewSectionObject.h */,
+				E108B2AD1CBE15D800191E0B /* KtTableViewSectionObject.m */,
+				E108B2B51CBE1F6500191E0B /* KtTableViewBaseItem.h */,
+				E108B2B61CBE1F6500191E0B /* KtTableViewBaseItem.m */,
+				E1EE5C9B1CBE811C0095688B /* KtBaseTableView.h */,
+				E1EE5C9C1CBE811C0095688B /* KtBaseTableView.m */,
+				E19B41171CC21555008A3E7F /* KtTableViewController.h */,
+				E19B41181CC21555008A3E7F /* KtTableViewController.m */,
+			);
+			name = KtBaseTableViewController;
+			sourceTree = "<group>";
+		};
+		E12A4F591CE8180E00AB6F35 /* KtExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E12A4F5A1CE8180E00AB6F35 /* NSDictionary+KtExtension.h */,
+				E12A4F5B1CE8180E00AB6F35 /* NSDictionary+KtExtension.m */,
+				E12A4F5C1CE8180E00AB6F35 /* UIView+KtExtension.h */,
+				E12A4F5D1CE8180E00AB6F35 /* UIView+KtExtension.m */,
+			);
+			path = KtExtension;
+			sourceTree = "<group>";
+		};
+		E1621DF41CBDF265003D9438 = {
+			isa = PBXGroup;
+			children = (
+				E1621DFF1CBDF265003D9438 /* KtTableView */,
+				E1621E191CBDF267003D9438 /* KtTableViewTests */,
+				E1621E241CBDF267003D9438 /* KtTableViewUITests */,
+				E1621DFE1CBDF265003D9438 /* Products */,
+				69E01484FD4E182CB56A5FE6 /* Pods */,
+				F71B31402A7F180F563A44F9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E1621DFE1CBDF265003D9438 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1621DFD1CBDF265003D9438 /* KtTableView.app */,
+				E1621E161CBDF267003D9438 /* KtTableViewTests.xctest */,
+				E1621E211CBDF267003D9438 /* KtTableViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1621DFF1CBDF265003D9438 /* KtTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E12A4F591CE8180E00AB6F35 /* KtExtension */,
+				E1DCC9EC1CE5A5FA00CDC83D /* KtBaseModel */,
+				E108B2A81CBE148200191E0B /* KtBaseTableViewController */,
+				E1621E031CBDF267003D9438 /* AppDelegate.h */,
+				E1621E041CBDF267003D9438 /* AppDelegate.m */,
+				E1621E061CBDF267003D9438 /* KTMainViewController.h */,
+				E1621E071CBDF267003D9438 /* KTMainViewController.m */,
+				E1DCC9F31CE5A76D00CDC83D /* KtMainTableModel.h */,
+				E1DCC9F41CE5A76D00CDC83D /* KtMainTableModel.m */,
+				E1DCC9F91CE5A99C00CDC83D /* KtMainTableItem.h */,
+				E1DCC9FA1CE5A99C00CDC83D /* KtMainTableItem.m */,
+				E108B2B21CBE1C9100191E0B /* KtMainTableViewDataSource.h */,
+				E108B2B31CBE1C9100191E0B /* KtMainTableViewDataSource.m */,
+				E108B2A51CBE0A2600191E0B /* KtMainTableViewCell.h */,
+				E108B2A61CBE0A2600191E0B /* KtMainTableViewCell.m */,
+				E1621E091CBDF267003D9438 /* Main.storyboard */,
+				E1621E0C1CBDF267003D9438 /* Assets.xcassets */,
+				E1621E0E1CBDF267003D9438 /* LaunchScreen.storyboard */,
+				E1621E111CBDF267003D9438 /* Info.plist */,
+				E1621E001CBDF265003D9438 /* Supporting Files */,
+			);
+			path = KtTableView;
+			sourceTree = "<group>";
+		};
+		E1621E001CBDF265003D9438 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1621E011CBDF265003D9438 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1621E191CBDF267003D9438 /* KtTableViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1621E1A1CBDF267003D9438 /* KtTableViewTests.m */,
+				E1621E1C1CBDF267003D9438 /* Info.plist */,
+			);
+			path = KtTableViewTests;
+			sourceTree = "<group>";
+		};
+		E1621E241CBDF267003D9438 /* KtTableViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E1621E251CBDF267003D9438 /* KtTableViewUITests.m */,
+				E1621E271CBDF267003D9438 /* Info.plist */,
+			);
+			path = KtTableViewUITests;
+			sourceTree = "<group>";
+		};
+		E1DCC9EC1CE5A5FA00CDC83D /* KtBaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1F64E7B1CECB02E005800E4 /* KtBaseListModel */,
+				E1DCC9ED1CE5A61A00CDC83D /* KtBaseModel.h */,
+				E1DCC9EE1CE5A61A00CDC83D /* KtBaseModel.m */,
+				E1DCC9F61CE5A81000CDC83D /* KtBaseItem.h */,
+				E1DCC9F71CE5A81000CDC83D /* KtBaseItem.m */,
+				E1DCC9F01CE5A6A000CDC83D /* KtBaseServerAPI.h */,
+				E1DCC9F11CE5A6A000CDC83D /* KtBaseServerAPI.m */,
+			);
+			path = KtBaseModel;
+			sourceTree = "<group>";
+		};
+		E1F64E7B1CECB02E005800E4 /* KtBaseListModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1F64E7F1CECB067005800E4 /* KtBaseListItem.h */,
+				E1F64E801CECB067005800E4 /* KtBaseListItem.m */,
+				E1F64E7C1CECB048005800E4 /* KtBaseListModel.h */,
+				E1F64E7D1CECB048005800E4 /* KtBaseListModel.m */,
+				E1F64F191CEE956E005800E4 /* KtRefreshTableViewController.h */,
+				E1F64F1A1CEE956E005800E4 /* KtRefreshTableViewController.m */,
+			);
+			path = KtBaseListModel;
+			sourceTree = "<group>";
+		};
+		F71B31402A7F180F563A44F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFDA0B8A1D36740848D30D13 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1621DFC1CBDF265003D9438 /* KtTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1621E2A1CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableView" */;
+			buildPhases = (
+				6AAF7A2D573159A8A4997064 /* Check Pods Manifest.lock */,
+				E1621DF91CBDF265003D9438 /* Sources */,
+				E1621DFA1CBDF265003D9438 /* Frameworks */,
+				E1621DFB1CBDF265003D9438 /* Resources */,
+				9C241BAA28F98CD40C517EAB /* Embed Pods Frameworks */,
+				F726984500B073E1BC60B240 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KtTableView;
+			productName = KtTableView;
+			productReference = E1621DFD1CBDF265003D9438 /* KtTableView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1621E151CBDF267003D9438 /* KtTableViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1621E2D1CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableViewTests" */;
+			buildPhases = (
+				E1621E121CBDF267003D9438 /* Sources */,
+				E1621E131CBDF267003D9438 /* Frameworks */,
+				E1621E141CBDF267003D9438 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1621E181CBDF267003D9438 /* PBXTargetDependency */,
+			);
+			name = KtTableViewTests;
+			productName = KtTableViewTests;
+			productReference = E1621E161CBDF267003D9438 /* KtTableViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E1621E201CBDF267003D9438 /* KtTableViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1621E301CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableViewUITests" */;
+			buildPhases = (
+				E1621E1D1CBDF267003D9438 /* Sources */,
+				E1621E1E1CBDF267003D9438 /* Frameworks */,
+				E1621E1F1CBDF267003D9438 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1621E231CBDF267003D9438 /* PBXTargetDependency */,
+			);
+			name = KtTableViewUITests;
+			productName = KtTableViewUITests;
+			productReference = E1621E211CBDF267003D9438 /* KtTableViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1621DF51CBDF265003D9438 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = zxy;
+				TargetAttributes = {
+					E1621DFC1CBDF265003D9438 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					E1621E151CBDF267003D9438 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = E1621DFC1CBDF265003D9438;
+					};
+					E1621E201CBDF267003D9438 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = E1621DFC1CBDF265003D9438;
+					};
+				};
+			};
+			buildConfigurationList = E1621DF81CBDF265003D9438 /* Build configuration list for PBXProject "KtTableView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1621DF41CBDF265003D9438;
+			productRefGroup = E1621DFE1CBDF265003D9438 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1621DFC1CBDF265003D9438 /* KtTableView */,
+				E1621E151CBDF267003D9438 /* KtTableViewTests */,
+				E1621E201CBDF267003D9438 /* KtTableViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1621DFB1CBDF265003D9438 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1621E101CBDF267003D9438 /* LaunchScreen.storyboard in Resources */,
+				E1621E0D1CBDF267003D9438 /* Assets.xcassets in Resources */,
+				E1621E0B1CBDF267003D9438 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E141CBDF267003D9438 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E1F1CBDF267003D9438 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AAF7A2D573159A8A4997064 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C241BAA28F98CD40C517EAB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F726984500B073E1BC60B240 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1621DF91CBDF265003D9438 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12A4F5E1CE8180E00AB6F35 /* NSDictionary+KtExtension.m in Sources */,
+				E1DCC9F81CE5A81000CDC83D /* KtBaseItem.m in Sources */,
+				E19B41191CC21555008A3E7F /* KtTableViewController.m in Sources */,
+				E12A4F5F1CE8180E00AB6F35 /* UIView+KtExtension.m in Sources */,
+				E108B2B41CBE1C9100191E0B /* KtMainTableViewDataSource.m in Sources */,
+				E108B2AB1CBE14C300191E0B /* KtTableViewDataSource.m in Sources */,
+				E108B2B71CBE1F6500191E0B /* KtTableViewBaseItem.m in Sources */,
+				E108B2B11CBE191300191E0B /* KtBaseTableViewCell.m in Sources */,
+				E1F64F1B1CEE956E005800E4 /* KtRefreshTableViewController.m in Sources */,
+				E1F64E811CECB067005800E4 /* KtBaseListItem.m in Sources */,
+				E1DCC9EF1CE5A61A00CDC83D /* KtBaseModel.m in Sources */,
+				E1DCC9F21CE5A6A000CDC83D /* KtBaseServerAPI.m in Sources */,
+				E1621E081CBDF267003D9438 /* KTMainViewController.m in Sources */,
+				E1DCC9FB1CE5A99C00CDC83D /* KtMainTableItem.m in Sources */,
+				E1F64E7E1CECB048005800E4 /* KtBaseListModel.m in Sources */,
+				E1EE5C9D1CBE811C0095688B /* KtBaseTableView.m in Sources */,
+				E1621E051CBDF267003D9438 /* AppDelegate.m in Sources */,
+				E108B2AE1CBE15D800191E0B /* KtTableViewSectionObject.m in Sources */,
+				E1DCC9F51CE5A76D00CDC83D /* KtMainTableModel.m in Sources */,
+				E1621E021CBDF265003D9438 /* main.m in Sources */,
+				E108B2A71CBE0A2600191E0B /* KtMainTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E121CBDF267003D9438 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1621E1B1CBDF267003D9438 /* KtTableViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1621E1D1CBDF267003D9438 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1621E261CBDF267003D9438 /* KtTableViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1621E181CBDF267003D9438 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1621DFC1CBDF265003D9438 /* KtTableView */;
+			targetProxy = E1621E171CBDF267003D9438 /* PBXContainerItemProxy */;
+		};
+		E1621E231CBDF267003D9438 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1621DFC1CBDF265003D9438 /* KtTableView */;
+			targetProxy = E1621E221CBDF267003D9438 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E1621E091CBDF267003D9438 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1621E0A1CBDF267003D9438 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E1621E0E1CBDF267003D9438 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1621E0F1CBDF267003D9438 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1621E281CBDF267003D9438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1621E291CBDF267003D9438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1621E2B1CBDF267003D9438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74A2D569E414911E7538367E /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KtTableView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E1621E2C1CBDF267003D9438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39F19645603938C8EF7DBFD3 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KtTableView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E1621E2E1CBDF267003D9438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KtTableViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KtTableView.app/KtTableView";
+			};
+			name = Debug;
+		};
+		E1621E2F1CBDF267003D9438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KtTableViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KtTableView.app/KtTableView";
+			};
+			name = Release;
+		};
+		E1621E311CBDF267003D9438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KtTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KtTableView;
+			};
+			name = Debug;
+		};
+		E1621E321CBDF267003D9438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KtTableViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kt.bestswifter.KtTableViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KtTableView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1621DF81CBDF265003D9438 /* Build configuration list for PBXProject "KtTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1621E281CBDF267003D9438 /* Debug */,
+				E1621E291CBDF267003D9438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1621E2A1CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1621E2B1CBDF267003D9438 /* Debug */,
+				E1621E2C1CBDF267003D9438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1621E2D1CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1621E2E1CBDF267003D9438 /* Debug */,
+				E1621E2F1CBDF267003D9438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1621E301CBDF267003D9438 /* Build configuration list for PBXNativeTarget "KtTableViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1621E311CBDF267003D9438 /* Debug */,
+				E1621E321CBDF267003D9438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1621DF51CBDF265003D9438 /* Project object */;
+}

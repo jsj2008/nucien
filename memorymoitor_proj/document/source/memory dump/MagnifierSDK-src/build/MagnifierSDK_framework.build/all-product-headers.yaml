@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/work/xcodeProject/Magnifier-for-iOS/MagnifierSDK-src/build/Release-iphonesimulator/MagnifierSDK.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MagnifierSDK-Swift.h",
+          'external-contents': "/work/xcodeProject/Magnifier-for-iOS/MagnifierSDK-src/build/Release-iphonesimulator/MagnifierSDK.framework/Headers/MagnifierSDK-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MgnfIOMonitor.h",
+          'external-contents': "/work/xcodeProject/Magnifier-for-iOS/MagnifierSDK-src/MagnifierSDK/MgnfIOMonitor.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/work/xcodeProject/Magnifier-for-iOS/MagnifierSDK-src/build/Release-iphonesimulator/MagnifierSDK.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/work/xcodeProject/Magnifier-for-iOS/MagnifierSDK-src/build/MagnifierSDK_framework.build/Release-iphonesimulator/MagnifierSDK_framework.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

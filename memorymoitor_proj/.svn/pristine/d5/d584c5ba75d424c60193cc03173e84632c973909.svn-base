@@ -1,0 +1,138 @@
+//
+//  GlobalMemory.m
+//  MIO
+//
+//  Created by 王哲锴 on 17/1/15.
+//  Copyright © 2017年 王哲锴. All rights reserved.
+//
+
+
+#import "GlobalMemory.h"
+#import <mach-o/dyld.h>
+#import <mach-o/loader.h>
+#import <mach-o/nlist.h>
+#import <dlfcn.h>
+#import <malloc/malloc.h>
+
+#ifndef SEG_DATA_CONST
+#define SEG_DATA_CONST  "__DATA_CONST"
+#endif
+
+@implementation GlobalMemory
+
++(void)myPrint:(int)index
+{
+    
+    struct mach_header_64* header = (struct mach_header_64*)_dyld_get_image_header(index);
+    intptr_t slide = _dyld_get_image_vmaddr_slide(index);
+    struct segment_command_64* cur_seg_cmd;
+    struct symtab_command* symtab_cmd = NULL;
+    struct dysymtab_command* dysymtab_cmd = NULL;
+    
+    char* stringTable_base = NULL;
+    struct nlist_64* symbolTable_base = NULL;
+    uint32_t* indirectSymbolTable_base = NULL;
+    
+    //第一次遍历
+    uintptr_t cur = (uintptr_t)header + sizeof(struct mach_header_64);
+    for (uint i = 0; i < header->ncmds; i++, cur += cur_seg_cmd->cmdsize)
+    {
+        cur_seg_cmd = (struct segment_command_64*)cur;
+        
+        if (cur_seg_cmd->cmd==LC_SYMTAB) {
+            symtab_cmd = (struct symtab_command*)cur_seg_cmd;
+            stringTable_base = (char*)((char*)header + symtab_cmd->stroff);
+            symbolTable_base = (struct nlist_64*)((char*)header + symtab_cmd->symoff);
+        }
+        
+        if(cur_seg_cmd->cmd==LC_DYSYMTAB){
+            dysymtab_cmd =(struct dysymtab_command*)cur_seg_cmd;
+            indirectSymbolTable_base = (uint32_t* )((char*)header + dysymtab_cmd->indirectsymoff);
+        }
+        
+    }
+    
+    //第二次遍历
+    cur = (uintptr_t)header + sizeof(struct mach_header_64);
+    for (uint i = 0; i < header->ncmds; i++, cur += cur_seg_cmd->cmdsize)
+    {
+        cur_seg_cmd = (struct segment_command_64*)cur;
+        if((cur_seg_cmd->cmd==LC_SEGMENT_64)&&(strcmp(cur_seg_cmd->segname, SEG_DATA)==0||strcmp(cur_seg_cmd->segname, SEG_DATA_CONST)==0))
+        {
+            uintptr_t cur_seg_base = (uintptr_t)slide + cur_seg_cmd->vmaddr - cur_seg_cmd->fileoff;
+            struct section_64 *sect;
+            for (uint j = 0; j < cur_seg_cmd->nsects; j++)
+            {
+                sect = (struct section_64 *)(cur + sizeof(struct segment_command_64)) + j;
+                //if ((sect->flags & SECTION_TYPE) == S_LAZY_SYMBOL_POINTERS)
+                char tmp_data_name[16] = SECT_DATA;
+                if(strcmp(sect -> sectname, SECT_DATA)==0 || strcmp(sect -> sectname, SECT_BSS)==0)
+                {
+                    vm_range_t tag;
+                    tag.address = cur_seg_base + sect->offset;
+                    tag.size = sect->size * sizeof(void *);
+                    global_memory_check_ptr_in_vmrange(tag);
+                    
+//                    uint32_t *tmp_ptr;
+//                    for(int i = 0; 4 * i < sect->size; ++i)
+//                    {
+//                        tmp_ptr = cur_seg_base + sect->offset;
+//                        uint32_t tag[4];
+//                        memcpy(&tag, tmp_ptr+sizeof(uint32_t)*i, sizeof(uint32_t)*4);
+//                        for(int xx = 0; xx < 4 && xx + i * 4 < sect->size; ++xx) {
+//                            printf("%d\n", tag[xx]);
+//                        }
+//                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+}
+
+void global_memory_check_ptr_in_vmrange(vm_range_t range){
+    const uint32_t align_size =sizeof(uint8_t);
+    vm_address_t vm_addr = range.address;
+    vm_size_t vm_size = range.size;
+    vm_size_t end_addr =vm_addr +vm_size;
+    if(align_size <=vm_size){
+        uint8_t * ptr_addr =(uint8_t *)vm_addr;
+        for(uint64_t addr =vm_addr;addr <end_addr &&((end_addr-addr)>=align_size);addr+=align_size,ptr_addr +=align_size){
+            vm_address_t *dest_ptr =(vm_address_t*)ptr_addr;
+            printf("dest_ptr %c\n",(int)*dest_ptr);
+        }
+    }
+}
+
+
++ (void)getGlobalVariableMemory {
+    NSLog(@"======================================================================");
+    NSLog(@"dlsym NSLog:%p",dlsym(RTLD_DEFAULT, "NSLog"));
+    [self myPrint:0];
+    // [self myPrintTest:0];
+    //    NSLog(@"dlsym open:%p",dlsym(RTLD_DEFAULT, "open"));
+    //    for (uint32_t i=0; i<_dyld_image_count(); i++)
+    //    {
+    //        [self myPrint:i];
+    //    }
+}
+
+@end
+
+/*
+void check_ptr_in_vmrange(vm_range_t range){
+    const uint32_t align_size =sizeof(void *);
+    vm_address_t vm_addr = range.address;
+    vm_size_t vm_size = range.size;
+    vm_size_t end_addr =vm_addr +vm_size;
+    if(align_size <=vm_size){
+        uint8_t * ptr_addr =(uint8_t *)vm_addr;
+        for(uint64_t addr =vm_addr;addr <end_addr &&((end_addr-addr)>=align_size);addr+=align_size,ptr_addr +=align_size){
+            vm_address_t *dest_ptr =(vm_address_t*)ptr_addr;
+            printf("dest_ptr %p -- Class: \n",dest_ptr);
+        }
+    }
+}
+*/

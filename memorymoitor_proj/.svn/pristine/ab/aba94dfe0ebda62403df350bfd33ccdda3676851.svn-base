@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C3ABF681E69163200D4304D /* leakTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3ABF671E69163200D4304D /* leakTestViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C3ABF6E1E6B039500D4304D /* HeapMem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C3ABF6C1E6B039500D4304D /* HeapMem.cpp */; };
+		EE712E0B1E2B74C4001B58CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E0A1E2B74C4001B58CA /* main.m */; };
+		EE712E0E1E2B74C4001B58CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E0D1E2B74C4001B58CA /* AppDelegate.m */; };
+		EE712E111E2B74C4001B58CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E101E2B74C4001B58CA /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EE712E141E2B74C4001B58CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE712E121E2B74C4001B58CA /* Main.storyboard */; };
+		EE712E161E2B74C4001B58CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE712E151E2B74C4001B58CA /* Assets.xcassets */; };
+		EE712E191E2B74C4001B58CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE712E171E2B74C4001B58CA /* LaunchScreen.storyboard */; };
+		EE712E241E2B74C4001B58CA /* MemoryMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E231E2B74C4001B58CA /* MemoryMonitorTests.m */; };
+		EE712E2F1E2B74C4001B58CA /* MemoryMonitorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E2E1E2B74C4001B58CA /* MemoryMonitorUITests.m */; };
+		EE712E5A1E2B7769001B58CA /* FBAllocationTracker-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE712E461E2B7769001B58CA /* FBAllocationTracker-Info.plist */; };
+		EE712E5B1E2B7769001B58CA /* FBAllocationTrackerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E4C1E2B7769001B58CA /* FBAllocationTrackerImpl.mm */; };
+		EE712E5C1E2B7769001B58CA /* FBAllocationTrackerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E4E1E2B7769001B58CA /* FBAllocationTrackerManager.mm */; };
+		EE712E5D1E2B7769001B58CA /* FBAllocationTrackerSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E501E2B7769001B58CA /* FBAllocationTrackerSummary.m */; };
+		EE712E5E1E2B7769001B58CA /* FBAllocationTrackerGeneration.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E531E2B7769001B58CA /* FBAllocationTrackerGeneration.mm */; };
+		EE712E5F1E2B7769001B58CA /* FBAllocationTrackerGenerationManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E551E2B7769001B58CA /* FBAllocationTrackerGenerationManager.mm */; };
+		EE712E601E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E571E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EE712E611E2B7769001B58CA /* NSObject+FBAllocationTracker.mm in Sources */ = {isa = PBXBuildFile; fileRef = EE712E591E2B7769001B58CA /* NSObject+FBAllocationTracker.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EE712E721E2B7790001B58CA /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = EE712E661E2B7790001B58CA /* fishhook.c */; };
+		EE712E731E2B7790001B58CA /* malloc_logger.c in Sources */ = {isa = PBXBuildFile; fileRef = EE712E681E2B7790001B58CA /* malloc_logger.c */; };
+		EE712E741E2B7790001B58CA /* GlobalMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E6C1E2B7790001B58CA /* GlobalMemory.m */; };
+		EE712E751E2B7790001B58CA /* HeapMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E6E1E2B7790001B58CA /* HeapMemory.m */; };
+		EE712E761E2B7790001B58CA /* StackMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E701E2B7790001B58CA /* StackMemory.m */; };
+		EE712E791E2B798E001B58CA /* mallochook.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E781E2B798E001B58CA /* mallochook.m */; };
+		EE712E7C1E2B7A96001B58CA /* hashmap.c in Sources */ = {isa = PBXBuildFile; fileRef = EE712E7A1E2B7A96001B58CA /* hashmap.c */; };
+		EE712E871E2B7D89001B58CA /* ImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E7E1E2B7D89001B58CA /* ImageInfo.m */; };
+		EE712E881E2B7D89001B58CA /* MgnfDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E801E2B7D89001B58CA /* MgnfDeviceInfo.m */; };
+		EE712E891E2B7D89001B58CA /* MgnfLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E821E2B7D89001B58CA /* MgnfLogger.m */; };
+		EE712EA81E2B968E001B58CA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E9C1E2B968E001B58CA /* AFHTTPSessionManager.m */; };
+		EE712EA91E2B968E001B58CA /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712E9F1E2B968E001B58CA /* AFNetworkReachabilityManager.m */; };
+		EE712EAA1E2B968E001B58CA /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712EA11E2B968E001B58CA /* AFSecurityPolicy.m */; };
+		EE712EAB1E2B968E001B58CA /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712EA31E2B968E001B58CA /* AFURLRequestSerialization.m */; };
+		EE712EAC1E2B968E001B58CA /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712EA51E2B968E001B58CA /* AFURLResponseSerialization.m */; };
+		EE712EAD1E2B968E001B58CA /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE712EA71E2B968E001B58CA /* AFURLSessionManager.m */; };
+		EEDFAA3F1E67FE2B00B799CD /* AllocHookTool.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFAA3E1E67FE2B00B799CD /* AllocHookTool.m */; };
+		EEDFAA421E68039900B799CD /* NSObject+allochook.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDFAA411E68039900B799CD /* NSObject+allochook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE712E201E2B74C4001B58CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE712DFE1E2B74C4001B58CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE712E051E2B74C4001B58CA;
+			remoteInfo = MemoryMonitor;
+		};
+		EE712E2B1E2B74C4001B58CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE712DFE1E2B74C4001B58CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE712E051E2B74C4001B58CA;
+			remoteInfo = MemoryMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4C3ABF661E69163200D4304D /* leakTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = leakTestViewController.h; path = PointerMonitor/leakTestViewController.h; sourceTree = "<group>"; };
+		4C3ABF671E69163200D4304D /* leakTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = leakTestViewController.m; path = PointerMonitor/leakTestViewController.m; sourceTree = "<group>"; };
+		4C3ABF6C1E6B039500D4304D /* HeapMem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapMem.cpp; sourceTree = "<group>"; };
+		4C3ABF6D1E6B039500D4304D /* HeapMem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapMem.h; sourceTree = "<group>"; };
+		EE712E061E2B74C4001B58CA /* MemoryMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE712E0A1E2B74C4001B58CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE712E0C1E2B74C4001B58CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE712E0D1E2B74C4001B58CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE712E0F1E2B74C4001B58CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EE712E101E2B74C4001B58CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EE712E131E2B74C4001B58CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE712E151E2B74C4001B58CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE712E181E2B74C4001B58CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE712E1A1E2B74C4001B58CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE712E1F1E2B74C4001B58CA /* MemoryMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE712E231E2B74C4001B58CA /* MemoryMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryMonitorTests.m; sourceTree = "<group>"; };
+		EE712E251E2B74C4001B58CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE712E2A1E2B74C4001B58CA /* MemoryMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE712E2E1E2B74C4001B58CA /* MemoryMonitorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryMonitorUITests.m; sourceTree = "<group>"; };
+		EE712E301E2B74C4001B58CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE712E461E2B7769001B58CA /* FBAllocationTracker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FBAllocationTracker-Info.plist"; sourceTree = "<group>"; };
+		EE712E471E2B7769001B58CA /* FBAllocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTracker.h; sourceTree = "<group>"; };
+		EE712E481E2B7769001B58CA /* FBAllocationTrackerDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerDefines.h; sourceTree = "<group>"; };
+		EE712E491E2B7769001B58CA /* FBAllocationTrackerFunctors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerFunctors.h; sourceTree = "<group>"; };
+		EE712E4A1E2B7769001B58CA /* FBAllocationTrackerHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerHelpers.h; sourceTree = "<group>"; };
+		EE712E4B1E2B7769001B58CA /* FBAllocationTrackerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerImpl.h; sourceTree = "<group>"; };
+		EE712E4C1E2B7769001B58CA /* FBAllocationTrackerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBAllocationTrackerImpl.mm; sourceTree = "<group>"; };
+		EE712E4D1E2B7769001B58CA /* FBAllocationTrackerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerManager.h; sourceTree = "<group>"; };
+		EE712E4E1E2B7769001B58CA /* FBAllocationTrackerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBAllocationTrackerManager.mm; sourceTree = "<group>"; };
+		EE712E4F1E2B7769001B58CA /* FBAllocationTrackerSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerSummary.h; sourceTree = "<group>"; };
+		EE712E501E2B7769001B58CA /* FBAllocationTrackerSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBAllocationTrackerSummary.m; sourceTree = "<group>"; };
+		EE712E521E2B7769001B58CA /* FBAllocationTrackerGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerGeneration.h; sourceTree = "<group>"; };
+		EE712E531E2B7769001B58CA /* FBAllocationTrackerGeneration.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBAllocationTrackerGeneration.mm; sourceTree = "<group>"; };
+		EE712E541E2B7769001B58CA /* FBAllocationTrackerGenerationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerGenerationManager.h; sourceTree = "<group>"; };
+		EE712E551E2B7769001B58CA /* FBAllocationTrackerGenerationManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBAllocationTrackerGenerationManager.mm; sourceTree = "<group>"; };
+		EE712E561E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBAllocationTrackerNSZombieSupport.h; sourceTree = "<group>"; };
+		EE712E571E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBAllocationTrackerNSZombieSupport.mm; sourceTree = "<group>"; };
+		EE712E581E2B7769001B58CA /* NSObject+FBAllocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FBAllocationTracker.h"; sourceTree = "<group>"; };
+		EE712E591E2B7769001B58CA /* NSObject+FBAllocationTracker.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+FBAllocationTracker.mm"; sourceTree = "<group>"; };
+		EE712E661E2B7790001B58CA /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		EE712E671E2B7790001B58CA /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
+		EE712E681E2B7790001B58CA /* malloc_logger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = malloc_logger.c; sourceTree = "<group>"; };
+		EE712E691E2B7790001B58CA /* malloc_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = malloc_logger.h; sourceTree = "<group>"; };
+		EE712E6B1E2B7790001B58CA /* GlobalMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMemory.h; sourceTree = "<group>"; };
+		EE712E6C1E2B7790001B58CA /* GlobalMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalMemory.m; sourceTree = "<group>"; };
+		EE712E6D1E2B7790001B58CA /* HeapMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeapMemory.h; sourceTree = "<group>"; };
+		EE712E6E1E2B7790001B58CA /* HeapMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeapMemory.m; sourceTree = "<group>"; };
+		EE712E6F1E2B7790001B58CA /* StackMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackMemory.h; sourceTree = "<group>"; };
+		EE712E701E2B7790001B58CA /* StackMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackMemory.m; sourceTree = "<group>"; };
+		EE712E771E2B798E001B58CA /* mallochook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mallochook.h; sourceTree = "<group>"; };
+		EE712E781E2B798E001B58CA /* mallochook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mallochook.m; sourceTree = "<group>"; };
+		EE712E7A1E2B7A96001B58CA /* hashmap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hashmap.c; path = MemoryMonitor/Base/hashmap.c; sourceTree = SOURCE_ROOT; };
+		EE712E7B1E2B7A96001B58CA /* hashmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hashmap.h; path = MemoryMonitor/Base/hashmap.h; sourceTree = SOURCE_ROOT; };
+		EE712E7D1E2B7D89001B58CA /* ImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageInfo.h; path = MemoryMonitor/Base/ImageInfo.h; sourceTree = SOURCE_ROOT; };
+		EE712E7E1E2B7D89001B58CA /* ImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageInfo.m; path = MemoryMonitor/Base/ImageInfo.m; sourceTree = SOURCE_ROOT; };
+		EE712E7F1E2B7D89001B58CA /* MgnfDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MgnfDeviceInfo.h; path = MemoryMonitor/Base/MgnfDeviceInfo.h; sourceTree = SOURCE_ROOT; };
+		EE712E801E2B7D89001B58CA /* MgnfDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MgnfDeviceInfo.m; path = MemoryMonitor/Base/MgnfDeviceInfo.m; sourceTree = SOURCE_ROOT; };
+		EE712E811E2B7D89001B58CA /* MgnfLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MgnfLogger.h; path = MemoryMonitor/Base/MgnfLogger.h; sourceTree = SOURCE_ROOT; };
+		EE712E821E2B7D89001B58CA /* MgnfLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MgnfLogger.m; path = MemoryMonitor/Base/MgnfLogger.m; sourceTree = SOURCE_ROOT; };
+		EE712E9B1E2B968E001B58CA /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		EE712E9C1E2B968E001B58CA /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		EE712E9D1E2B968E001B58CA /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		EE712E9E1E2B968E001B58CA /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		EE712E9F1E2B968E001B58CA /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		EE712EA01E2B968E001B58CA /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		EE712EA11E2B968E001B58CA /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		EE712EA21E2B968E001B58CA /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		EE712EA31E2B968E001B58CA /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		EE712EA41E2B968E001B58CA /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		EE712EA51E2B968E001B58CA /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		EE712EA61E2B968E001B58CA /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		EE712EA71E2B968E001B58CA /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		EEDFAA3D1E67FE2B00B799CD /* AllocHookTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllocHookTool.h; sourceTree = "<group>"; };
+		EEDFAA3E1E67FE2B00B799CD /* AllocHookTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllocHookTool.m; sourceTree = "<group>"; };
+		EEDFAA401E68039900B799CD /* NSObject+allochook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+allochook.h"; sourceTree = "<group>"; };
+		EEDFAA411E68039900B799CD /* NSObject+allochook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+allochook.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE712E031E2B74C4001B58CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E1C1E2B74C4001B58CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E271E2B74C4001B58CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE712DFD1E2B74C4001B58CA = {
+			isa = PBXGroup;
+			children = (
+				EE712E081E2B74C4001B58CA /* MemoryMonitor */,
+				EE712E221E2B74C4001B58CA /* MemoryMonitorTests */,
+				EE712E2D1E2B74C4001B58CA /* MemoryMonitorUITests */,
+				EE712E071E2B74C4001B58CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE712E071E2B74C4001B58CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E061E2B74C4001B58CA /* MemoryMonitor.app */,
+				EE712E1F1E2B74C4001B58CA /* MemoryMonitorTests.xctest */,
+				EE712E2A1E2B74C4001B58CA /* MemoryMonitorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE712E081E2B74C4001B58CA /* MemoryMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E621E2B7790001B58CA /* Base */,
+				EE712E651E2B7790001B58CA /* Hook */,
+				EE712E6A1E2B7790001B58CA /* PointerMonitor */,
+				EE712E451E2B7769001B58CA /* FBAllocationTracker */,
+				EE712E0C1E2B74C4001B58CA /* AppDelegate.h */,
+				EE712E0D1E2B74C4001B58CA /* AppDelegate.m */,
+				EE712E0F1E2B74C4001B58CA /* ViewController.h */,
+				EE712E101E2B74C4001B58CA /* ViewController.m */,
+				4C3ABF661E69163200D4304D /* leakTestViewController.h */,
+				4C3ABF671E69163200D4304D /* leakTestViewController.m */,
+				EE712E121E2B74C4001B58CA /* Main.storyboard */,
+				EE712E151E2B74C4001B58CA /* Assets.xcassets */,
+				EE712E171E2B74C4001B58CA /* LaunchScreen.storyboard */,
+				EE712E1A1E2B74C4001B58CA /* Info.plist */,
+				EE712E091E2B74C4001B58CA /* Supporting Files */,
+			);
+			path = MemoryMonitor;
+			sourceTree = "<group>";
+		};
+		EE712E091E2B74C4001B58CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E0A1E2B74C4001B58CA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE712E221E2B74C4001B58CA /* MemoryMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E231E2B74C4001B58CA /* MemoryMonitorTests.m */,
+				EE712E251E2B74C4001B58CA /* Info.plist */,
+			);
+			path = MemoryMonitorTests;
+			sourceTree = "<group>";
+		};
+		EE712E2D1E2B74C4001B58CA /* MemoryMonitorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E2E1E2B74C4001B58CA /* MemoryMonitorUITests.m */,
+				EE712E301E2B74C4001B58CA /* Info.plist */,
+			);
+			path = MemoryMonitorUITests;
+			sourceTree = "<group>";
+		};
+		EE712E451E2B7769001B58CA /* FBAllocationTracker */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E461E2B7769001B58CA /* FBAllocationTracker-Info.plist */,
+				EE712E471E2B7769001B58CA /* FBAllocationTracker.h */,
+				EE712E481E2B7769001B58CA /* FBAllocationTrackerDefines.h */,
+				EE712E491E2B7769001B58CA /* FBAllocationTrackerFunctors.h */,
+				EE712E4A1E2B7769001B58CA /* FBAllocationTrackerHelpers.h */,
+				EE712E4B1E2B7769001B58CA /* FBAllocationTrackerImpl.h */,
+				EE712E4C1E2B7769001B58CA /* FBAllocationTrackerImpl.mm */,
+				EE712E4D1E2B7769001B58CA /* FBAllocationTrackerManager.h */,
+				EE712E4E1E2B7769001B58CA /* FBAllocationTrackerManager.mm */,
+				EE712E4F1E2B7769001B58CA /* FBAllocationTrackerSummary.h */,
+				EE712E501E2B7769001B58CA /* FBAllocationTrackerSummary.m */,
+				EE712E511E2B7769001B58CA /* Generations */,
+				EE712E581E2B7769001B58CA /* NSObject+FBAllocationTracker.h */,
+				EE712E591E2B7769001B58CA /* NSObject+FBAllocationTracker.mm */,
+			);
+			path = FBAllocationTracker;
+			sourceTree = "<group>";
+		};
+		EE712E511E2B7769001B58CA /* Generations */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E521E2B7769001B58CA /* FBAllocationTrackerGeneration.h */,
+				EE712E531E2B7769001B58CA /* FBAllocationTrackerGeneration.mm */,
+				EE712E541E2B7769001B58CA /* FBAllocationTrackerGenerationManager.h */,
+				EE712E551E2B7769001B58CA /* FBAllocationTrackerGenerationManager.mm */,
+				EE712E561E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.h */,
+				EE712E571E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.mm */,
+			);
+			path = Generations;
+			sourceTree = "<group>";
+		};
+		EE712E621E2B7790001B58CA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E9A1E2B968E001B58CA /* AFNetworking */,
+				EE712E7D1E2B7D89001B58CA /* ImageInfo.h */,
+				EE712E7E1E2B7D89001B58CA /* ImageInfo.m */,
+				EE712E7F1E2B7D89001B58CA /* MgnfDeviceInfo.h */,
+				EE712E801E2B7D89001B58CA /* MgnfDeviceInfo.m */,
+				EE712E811E2B7D89001B58CA /* MgnfLogger.h */,
+				EE712E821E2B7D89001B58CA /* MgnfLogger.m */,
+				EE712E7A1E2B7A96001B58CA /* hashmap.c */,
+				EE712E7B1E2B7A96001B58CA /* hashmap.h */,
+			);
+			name = Base;
+			path = HashMap;
+			sourceTree = "<group>";
+		};
+		EE712E651E2B7790001B58CA /* Hook */ = {
+			isa = PBXGroup;
+			children = (
+				EEDFAA3D1E67FE2B00B799CD /* AllocHookTool.h */,
+				EEDFAA3E1E67FE2B00B799CD /* AllocHookTool.m */,
+				EE712E771E2B798E001B58CA /* mallochook.h */,
+				EE712E781E2B798E001B58CA /* mallochook.m */,
+				EE712E661E2B7790001B58CA /* fishhook.c */,
+				EE712E671E2B7790001B58CA /* fishhook.h */,
+				EE712E681E2B7790001B58CA /* malloc_logger.c */,
+				EE712E691E2B7790001B58CA /* malloc_logger.h */,
+				EEDFAA401E68039900B799CD /* NSObject+allochook.h */,
+				EEDFAA411E68039900B799CD /* NSObject+allochook.m */,
+			);
+			path = Hook;
+			sourceTree = "<group>";
+		};
+		EE712E6A1E2B7790001B58CA /* PointerMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				4C3ABF6C1E6B039500D4304D /* HeapMem.cpp */,
+				4C3ABF6D1E6B039500D4304D /* HeapMem.h */,
+				EE712E6B1E2B7790001B58CA /* GlobalMemory.h */,
+				EE712E6C1E2B7790001B58CA /* GlobalMemory.m */,
+				EE712E6D1E2B7790001B58CA /* HeapMemory.h */,
+				EE712E6E1E2B7790001B58CA /* HeapMemory.m */,
+				EE712E6F1E2B7790001B58CA /* StackMemory.h */,
+				EE712E701E2B7790001B58CA /* StackMemory.m */,
+			);
+			path = PointerMonitor;
+			sourceTree = "<group>";
+		};
+		EE712E9A1E2B968E001B58CA /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				EE712E9B1E2B968E001B58CA /* AFHTTPSessionManager.h */,
+				EE712E9C1E2B968E001B58CA /* AFHTTPSessionManager.m */,
+				EE712E9D1E2B968E001B58CA /* AFNetworking.h */,
+				EE712E9E1E2B968E001B58CA /* AFNetworkReachabilityManager.h */,
+				EE712E9F1E2B968E001B58CA /* AFNetworkReachabilityManager.m */,
+				EE712EA01E2B968E001B58CA /* AFSecurityPolicy.h */,
+				EE712EA11E2B968E001B58CA /* AFSecurityPolicy.m */,
+				EE712EA21E2B968E001B58CA /* AFURLRequestSerialization.h */,
+				EE712EA31E2B968E001B58CA /* AFURLRequestSerialization.m */,
+				EE712EA41E2B968E001B58CA /* AFURLResponseSerialization.h */,
+				EE712EA51E2B968E001B58CA /* AFURLResponseSerialization.m */,
+				EE712EA61E2B968E001B58CA /* AFURLSessionManager.h */,
+				EE712EA71E2B968E001B58CA /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			path = MemoryMonitor/Base/AFNetworking;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE712E051E2B74C4001B58CA /* MemoryMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE712E331E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitor" */;
+			buildPhases = (
+				EE712E021E2B74C4001B58CA /* Sources */,
+				EE712E031E2B74C4001B58CA /* Frameworks */,
+				EE712E041E2B74C4001B58CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MemoryMonitor;
+			productName = MemoryMonitor;
+			productReference = EE712E061E2B74C4001B58CA /* MemoryMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE712E1E1E2B74C4001B58CA /* MemoryMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE712E361E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitorTests" */;
+			buildPhases = (
+				EE712E1B1E2B74C4001B58CA /* Sources */,
+				EE712E1C1E2B74C4001B58CA /* Frameworks */,
+				EE712E1D1E2B74C4001B58CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE712E211E2B74C4001B58CA /* PBXTargetDependency */,
+			);
+			name = MemoryMonitorTests;
+			productName = MemoryMonitorTests;
+			productReference = EE712E1F1E2B74C4001B58CA /* MemoryMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE712E291E2B74C4001B58CA /* MemoryMonitorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE712E391E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitorUITests" */;
+			buildPhases = (
+				EE712E261E2B74C4001B58CA /* Sources */,
+				EE712E271E2B74C4001B58CA /* Frameworks */,
+				EE712E281E2B74C4001B58CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE712E2C1E2B74C4001B58CA /* PBXTargetDependency */,
+			);
+			name = MemoryMonitorUITests;
+			productName = MemoryMonitorUITests;
+			productReference = EE712E2A1E2B74C4001B58CA /* MemoryMonitorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE712DFE1E2B74C4001B58CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "王哲锴";
+				TargetAttributes = {
+					EE712E051E2B74C4001B58CA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 2TN78SB32C;
+						ProvisioningStyle = Automatic;
+					};
+					EE712E1E1E2B74C4001B58CA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EE712E051E2B74C4001B58CA;
+					};
+					EE712E291E2B74C4001B58CA = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EE712E051E2B74C4001B58CA;
+					};
+				};
+			};
+			buildConfigurationList = EE712E011E2B74C4001B58CA /* Build configuration list for PBXProject "MemoryMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE712DFD1E2B74C4001B58CA;
+			productRefGroup = EE712E071E2B74C4001B58CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE712E051E2B74C4001B58CA /* MemoryMonitor */,
+				EE712E1E1E2B74C4001B58CA /* MemoryMonitorTests */,
+				EE712E291E2B74C4001B58CA /* MemoryMonitorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE712E041E2B74C4001B58CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE712E191E2B74C4001B58CA /* LaunchScreen.storyboard in Resources */,
+				EE712E161E2B74C4001B58CA /* Assets.xcassets in Resources */,
+				EE712E5A1E2B7769001B58CA /* FBAllocationTracker-Info.plist in Resources */,
+				EE712E141E2B74C4001B58CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E1D1E2B74C4001B58CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E281E2B74C4001B58CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE712E021E2B74C4001B58CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE712E611E2B7769001B58CA /* NSObject+FBAllocationTracker.mm in Sources */,
+				EE712E881E2B7D89001B58CA /* MgnfDeviceInfo.m in Sources */,
+				EE712E741E2B7790001B58CA /* GlobalMemory.m in Sources */,
+				EE712E5F1E2B7769001B58CA /* FBAllocationTrackerGenerationManager.mm in Sources */,
+				EE712E5E1E2B7769001B58CA /* FBAllocationTrackerGeneration.mm in Sources */,
+				EE712E5C1E2B7769001B58CA /* FBAllocationTrackerManager.mm in Sources */,
+				EE712E111E2B74C4001B58CA /* ViewController.m in Sources */,
+				4C3ABF6E1E6B039500D4304D /* HeapMem.cpp in Sources */,
+				4C3ABF681E69163200D4304D /* leakTestViewController.m in Sources */,
+				EE712E0E1E2B74C4001B58CA /* AppDelegate.m in Sources */,
+				EE712EAD1E2B968E001B58CA /* AFURLSessionManager.m in Sources */,
+				EE712EA91E2B968E001B58CA /* AFNetworkReachabilityManager.m in Sources */,
+				EE712E871E2B7D89001B58CA /* ImageInfo.m in Sources */,
+				EE712E761E2B7790001B58CA /* StackMemory.m in Sources */,
+				EE712EAC1E2B968E001B58CA /* AFURLResponseSerialization.m in Sources */,
+				EE712E5B1E2B7769001B58CA /* FBAllocationTrackerImpl.mm in Sources */,
+				EEDFAA421E68039900B799CD /* NSObject+allochook.m in Sources */,
+				EE712E0B1E2B74C4001B58CA /* main.m in Sources */,
+				EEDFAA3F1E67FE2B00B799CD /* AllocHookTool.m in Sources */,
+				EE712E751E2B7790001B58CA /* HeapMemory.m in Sources */,
+				EE712E5D1E2B7769001B58CA /* FBAllocationTrackerSummary.m in Sources */,
+				EE712E601E2B7769001B58CA /* FBAllocationTrackerNSZombieSupport.mm in Sources */,
+				EE712EAA1E2B968E001B58CA /* AFSecurityPolicy.m in Sources */,
+				EE712E891E2B7D89001B58CA /* MgnfLogger.m in Sources */,
+				EE712EA81E2B968E001B58CA /* AFHTTPSessionManager.m in Sources */,
+				EE712E7C1E2B7A96001B58CA /* hashmap.c in Sources */,
+				EE712E791E2B798E001B58CA /* mallochook.m in Sources */,
+				EE712EAB1E2B968E001B58CA /* AFURLRequestSerialization.m in Sources */,
+				EE712E731E2B7790001B58CA /* malloc_logger.c in Sources */,
+				EE712E721E2B7790001B58CA /* fishhook.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E1B1E2B74C4001B58CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE712E241E2B74C4001B58CA /* MemoryMonitorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE712E261E2B74C4001B58CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE712E2F1E2B74C4001B58CA /* MemoryMonitorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE712E211E2B74C4001B58CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE712E051E2B74C4001B58CA /* MemoryMonitor */;
+			targetProxy = EE712E201E2B74C4001B58CA /* PBXContainerItemProxy */;
+		};
+		EE712E2C1E2B74C4001B58CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE712E051E2B74C4001B58CA /* MemoryMonitor */;
+			targetProxy = EE712E2B1E2B74C4001B58CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE712E121E2B74C4001B58CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE712E131E2B74C4001B58CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE712E171E2B74C4001B58CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE712E181E2B74C4001B58CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE712E311E2B74C4001B58CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE712E321E2B74C4001B58CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE712E341E2B74C4001B58CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2TN78SB32C;
+				INFOPLIST_FILE = MemoryMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EE712E351E2B74C4001B58CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2TN78SB32C;
+				INFOPLIST_FILE = MemoryMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EE712E371E2B74C4001B58CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MemoryMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryMonitor.app/MemoryMonitor";
+			};
+			name = Debug;
+		};
+		EE712E381E2B74C4001B58CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MemoryMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryMonitor.app/MemoryMonitor";
+			};
+			name = Release;
+		};
+		EE712E3A1E2B74C4001B58CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MemoryMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MemoryMonitor;
+			};
+			name = Debug;
+		};
+		EE712E3B1E2B74C4001B58CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MemoryMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kapkanwang.MemoryMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MemoryMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE712E011E2B74C4001B58CA /* Build configuration list for PBXProject "MemoryMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE712E311E2B74C4001B58CA /* Debug */,
+				EE712E321E2B74C4001B58CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE712E331E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE712E341E2B74C4001B58CA /* Debug */,
+				EE712E351E2B74C4001B58CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE712E361E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE712E371E2B74C4001B58CA /* Debug */,
+				EE712E381E2B74C4001B58CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE712E391E2B74C4001B58CA /* Build configuration list for PBXNativeTarget "MemoryMonitorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE712E3A1E2B74C4001B58CA /* Debug */,
+				EE712E3B1E2B74C4001B58CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE712DFE1E2B74C4001B58CA /* Project object */;
+}

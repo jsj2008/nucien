@@ -1,0 +1,45 @@
+Release Notes for Cisco router simulator (Dynamips)
+===================================================
+
+Version:  v0.2.12
+
+Release date:  Thursday, March 27, 2014 (2014-03-27)
+
+Source code:  https://github.com/GNS3/dynamips/tree/v0.2.12
+
+License: GNU GPLv2
+
+
+What's New since v0.2.11
+========================
+
+Fixed all known multicast issues. Patches by Peter Palúch.
+New hypervisor command:
+- vm_debug pmem_cfind <instance_name> <cpu_id> <bytes> [<first> [<last>]]
+
+Fixed issue #29 - packet loss with multicast traffic
+Closed issue #31 - create hypervisor command to find a pattern in the router memory
+
+
+What's Also New since v0.2.10
+=============================
+
+(forgot these in the previous release notes)
+
+Old text is replayed when you connect to the console/aux port.
+Warn the VM isn't running when connecting to the console/aux port.
+
+
+Known Issues
+============
+
+There is lots of missing hardware functionality.
+  - https://github.com/GNS3/dynamips/issues/5
+
+Reload from the router console doesn't work.
+  - https://github.com/GNS3/dynamips/issues/6
+
+Using a self decompressing image can lead to an invalid IA and stop the cpu.
+  - https://github.com/GNS3/dynamips/issues/8
+
+There are still memory leaks.

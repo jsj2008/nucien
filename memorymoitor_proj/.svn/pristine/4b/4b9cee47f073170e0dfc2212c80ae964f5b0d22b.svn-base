@@ -1,0 +1,52 @@
+//
+//  BasicFunction.h
+//  MemoryMonitor
+//
+//  Created by 王哲锴 on 17/3/13.
+//  Copyright © 2017年 王哲锴. All rights reserved.
+//
+
+#ifndef BasicFunction_h
+#define BasicFunction_h
+
+
+#endif /* BasicFunction_h */
+
+#include "hashmap.h"
+#include <mach/mach.h>
+#include <stdlib.h>
+#include <mach/machine/thread_status.h>
+#include <pthread.h>
+#include <malloc/malloc.h>
+#include <libkern/OSSpinLockDeprecated.h>
+#include <execinfo.h>
+#include <string.h>
+#import <mach-o/dyld.h>
+#import <dlfcn.h>
+#import <mach/mach_init.h>
+#import <sys/mman.h>
+#import <dlfcn.h>
+#import "fishhook.h"
+
+#define max_stack_depth 128
+
+
+typedef struct
+{
+    uint32_t size;
+    uint32_t depth;
+    vm_address_t **stack;
+    char name[16];
+    vm_address_t address;
+}base_ptr_t;
+
+extern malloc_zone_t *memory_zone;
+extern void *ptrs_hashmap;
+extern void *pmap;
+
+void hook_init();
+void recordStack(vm_address_t address, uint32_t size, const char*name);
+void removeStack(vm_address_t address,const char*name);
+char *longToString(long x);
+long stringToLong(char *x);
+void suspendThread();

@@ -1,0 +1,62 @@
+//
+//  allochook.m
+//  MemoryMonitor
+//
+//  Created by 王哲锴 on 17/3/2.
+//  Copyright © 2017年 王哲锴. All rights reserved.
+//
+
+#import "NSObject+allochook.h"
+
+@implementation NSObject(allochook)
+
++(void)swizzleMemoryMethod{
+    [YellowHookTool swizzleInstanceMethod:[NSObject class] selector:@selector(dealloc) withClass:[NSObject class] Method:@selector(my_dealloc)];
+    [YellowHookTool swizzleClassMethod:[NSObject class] selector:@selector(alloc) withClass:[NSObject class] Method:@selector(my_alloc)];
+}
+
+-(void)my_dealloc {
+//    malloc_printf("SwizzleHookDealloc Pointer: %p\n", self);
+//    [[QQVCLeakHunter getInstance] cancelCheckForKey:[self controllerReferenceString]];
+//    [[YellowStackHandler getInstance] removeStackForKey:(long)self];
+    removeStack(self, "dealloc");
+    [self my_dealloc];
+}
+
++ (instancetype)my_alloc {
+    id obj = [self my_alloc];
+//        保存堆栈方案一
+//        void* callstack[128];
+//        int i, frames = backtrace(callstack, 128);
+//        char** strs = backtrace_symbols(callstack, frames);
+//        for (i = 0; i < frames; ++i) {
+//            malloc_printf("stackframe: %s\n", strs[i]);
+//        }
+//        free(strs);
+    recordStack(obj, malloc_size(obj), "alloc");
+//    malloc_printf("SwizzleHookAlloc Pointer: %p\n", obj);
+//    if([QQVCLeakHunter isEnableMonitor]){
+//        if([obj isKindOfClass:[UIViewController class]]){
+//            NSString *name = NSStringFromClass([obj class]);
+//            if([name hasPrefix:@"_"] || [name isEqualToString:@"UIAlertController"]){
+//                return obj;
+//            }
+    
+
+    
+    
+    
+//            [[YellowStackHandler getInstance] addAllocStack:callStack forKey:(long)obj];
+//        }
+//    }
+//    if([QQVCLeakHunter isEnableMonitorView] && [QQVCLeakHunter isEnableMonitorViewStack]){
+//        if([obj isKindOfClass:[UIView class]])
+//        {
+//            NSString *allocStack = [[YellowStackHandler getInstance] getStackInfo];
+//            objc_setAssociatedObject(obj, uiviewCallStack, allocStack, OBJC_ASSOCIATION_RETAIN);
+//        }
+//    }
+    return obj;
+}
+
+@end
